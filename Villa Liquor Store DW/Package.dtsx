@@ -7,15 +7,25 @@
   DTS:CreatorName="DESKTOP-74QIKVU\DELL"
   DTS:DTSID="{EC0E208D-A853-45A8-9BC0-1D3D9C18E2DB}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.152"
+  DTS:LastModifiedProductVersion="15.0.2000.157"
   DTS:LocaleID="3072"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="24"
-  DTS:VersionGUID="{FE6B4F3A-D4CB-49A2-A876-BE1775D5DC77}">
+  DTS:VersionBuild="35"
+  DTS:VersionGUID="{9CD8EF3B-EFD1-4A3B-840B-5F10F0ABD1E5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LOCALHOST]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F9084322-92B1-40A3-A682-3865C43655ED}"
+      DTS:ObjectName="LOCALHOST">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=LOCALHOST;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[localhost.Villa_Liquor_DW]"
       DTS:CreationName="OLEDB"
@@ -47,7 +57,6 @@
               componentClassID="Microsoft.DataConvert"
               contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Data Conversion"
-              localeId="1033"
               name="Data Conversion"
               usesDispositions="true">
               <inputs>
@@ -56,86 +65,22 @@
                   name="Data Conversion Input">
                   <inputColumns>
                     <inputColumn
+                      refId="Package\Extract data FACT\Data Conversion.Inputs[Data Conversion Input].Columns[Qty]"
+                      cachedDataType="i4"
+                      cachedName="Qty"
+                      lineageId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].Columns[Qty]" />
+                    <inputColumn
+                      refId="Package\Extract data FACT\Data Conversion.Inputs[Data Conversion Input].Columns[Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Date"
+                      lineageId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].Columns[Date]" />
+                    <inputColumn
                       refId="Package\Extract data FACT\Data Conversion.Inputs[Data Conversion Input].Columns[BarCode]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="30"
                       cachedName="BarCode"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[BarCode]" />
-                    <inputColumn
-                      refId="Package\Extract data FACT\Data Conversion.Inputs[Data Conversion Input].Columns[Qty]"
-                      cachedDataType="i4"
-                      cachedName="Qty"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[Qty]" />
-                    <inputColumn
-                      refId="Package\Extract data FACT\Data Conversion.Inputs[Data Conversion Input].Columns[Total]"
-                      cachedDataType="cy"
-                      cachedName="Total"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[Total]" />
-                    <inputColumn
-                      refId="Package\Extract data FACT\Data Conversion.Inputs[Data Conversion Input].Columns[Date]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Date"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date]" />
-                    <inputColumn
-                      refId="Package\Extract data FACT\Data Conversion.Inputs[Data Conversion Input].Columns[SupplyID]"
-                      cachedDataType="i8"
-                      cachedName="SupplyID"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[SupplyID]" />
-                    <inputColumn
-                      refId="Package\Extract data FACT\Data Conversion.Inputs[Data Conversion Input].Columns[BtlPrice]"
-                      cachedDataType="cy"
-                      cachedName="BtlPrice"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[BtlPrice]" />
-                    <inputColumn
-                      refId="Package\Extract data FACT\Data Conversion.Inputs[Data Conversion Input].Columns[VendorID]"
-                      cachedDataType="i4"
-                      cachedName="VendorID"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[VendorID]" />
-                    <inputColumn
-                      refId="Package\Extract data FACT\Data Conversion.Inputs[Data Conversion Input].Columns[DiscountID]"
-                      cachedDataType="i2"
-                      cachedName="DiscountID"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[DiscountID]" />
-                    <inputColumn
-                      refId="Package\Extract data FACT\Data Conversion.Inputs[Data Conversion Input].Columns[OrderNumber]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="20"
-                      cachedName="OrderNumber"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderNumber]" />
-                    <inputColumn
-                      refId="Package\Extract data FACT\Data Conversion.Inputs[Data Conversion Input].Columns[Inv]"
-                      cachedDataType="i4"
-                      cachedName="Inv"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[Inv]" />
-                    <inputColumn
-                      refId="Package\Extract data FACT\Data Conversion.Inputs[Data Conversion Input].Columns[UnitPrice]"
-                      cachedDataType="cy"
-                      cachedName="UnitPrice"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitPrice]" />
-                    <inputColumn
-                      refId="Package\Extract data FACT\Data Conversion.Inputs[Data Conversion Input].Columns[CasePack]"
-                      cachedDataType="i2"
-                      cachedName="CasePack"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[CasePack]" />
-                    <inputColumn
-                      refId="Package\Extract data FACT\Data Conversion.Inputs[Data Conversion Input].Columns[ListPrice]"
-                      cachedDataType="cy"
-                      cachedName="ListPrice"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[ListPrice]" />
-                    <inputColumn
-                      refId="Package\Extract data FACT\Data Conversion.Inputs[Data Conversion Input].Columns[MinPrice]"
-                      cachedDataType="cy"
-                      cachedName="MinPrice"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[MinPrice]" />
-                    <inputColumn
-                      refId="Package\Extract data FACT\Data Conversion.Inputs[Data Conversion Input].Columns[Comments]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="500"
-                      cachedName="Comments"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[Comments]" />
+                      lineageId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].Columns[BarCode]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -148,312 +93,62 @@
                   synchronousInputId="Package\Extract data FACT\Data Conversion.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[barcode]"
+                      refId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Qty]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Qty]"
+                      name="Copy of Qty"
+                      precision="18"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].Columns[Qty]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Date]"
+                      name="Copy of Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].Columns[Date]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of BarCode]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="30"
-                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[barcode]"
-                      name="barcode"
+                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of BarCode]"
+                      name="Copy of BarCode"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[BarCode]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[btlprice]"
-                      dataType="cy"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[btlprice]"
-                      name="btlprice"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[BtlPrice]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[casepack]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[casepack]"
-                      name="casepack"
-                      precision="18"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[CasePack]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[comments]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="500"
-                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[comments]"
-                      name="comments"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[Comments]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[date_value]"
-                      dataType="dbDate"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[date_value]"
-                      name="date_value"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[discountID]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[discountID]"
-                      name="discountID"
-                      precision="18"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[DiscountID]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[inv]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[inv]"
-                      name="inv"
-                      precision="18"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[Inv]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[listprice]"
-                      dataType="cy"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[listprice]"
-                      name="listprice"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[ListPrice]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[minprice]"
-                      dataType="cy"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[minprice]"
-                      name="minprice"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[MinPrice]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[ordernumber]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="20"
-                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[ordernumber]"
-                      name="ordernumber"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderNumber]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[qty]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[qty]"
-                      name="qty"
-                      precision="18"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[Qty]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[supplyID]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[supplyID]"
-                      name="supplyID"
-                      precision="18"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[SupplyID]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[total]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[total]"
-                      name="total"
-                      precision="18"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[Total]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[unitprice]"
-                      dataType="cy"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[unitprice]"
-                      name="unitprice"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitPrice]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[vendorID]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[vendorID]"
-                      name="vendorID"
-                      precision="18"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[VendorID]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].Columns[BarCode]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -488,12 +183,714 @@
               </outputs>
             </component>
             <component
-              refId="Package\Extract data FACT\OLE DB Destination"
+              refId="Package\Extract data FACT\Data Conversion 1"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Extract data FACT\Data Conversion 1.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extract data FACT\Data Conversion 1.Inputs[Data Conversion Input].Columns[BarCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="BarCode"
+                      lineageId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].Columns[BarCode]" />
+                    <inputColumn
+                      refId="Package\Extract data FACT\Data Conversion 1.Inputs[Data Conversion Input].Columns[Price]"
+                      cachedDataType="cy"
+                      cachedName="Price"
+                      lineageId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].Columns[Price]" />
+                    <inputColumn
+                      refId="Package\Extract data FACT\Data Conversion 1.Inputs[Data Conversion Input].Columns[Qty]"
+                      cachedDataType="i4"
+                      cachedName="Qty"
+                      lineageId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].Columns[Qty]" />
+                    <inputColumn
+                      refId="Package\Extract data FACT\Data Conversion 1.Inputs[Data Conversion Input].Columns[SaleDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="SaleDate"
+                      lineageId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].Columns[SaleDate]" />
+                    <inputColumn
+                      refId="Package\Extract data FACT\Data Conversion 1.Inputs[Data Conversion Input].Columns[SaleTransaction]"
+                      cachedDataType="i8"
+                      cachedName="SaleTransaction"
+                      lineageId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].Columns[SaleTransaction]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extract data FACT\Data Conversion 1.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Extract data FACT\Data Conversion 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract data FACT\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of BarCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="30"
+                      lineageId="Package\Extract data FACT\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of BarCode]"
+                      name="Copy of BarCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].Columns[BarCode]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract data FACT\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Price]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Extract data FACT\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Price]"
+                      name="Copy of Price"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].Columns[Price]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract data FACT\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Qty]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Extract data FACT\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Qty]"
+                      name="Copy of Qty"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].Columns[Qty]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract data FACT\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of SaleDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Extract data FACT\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of SaleDate]"
+                      name="Copy of SaleDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].Columns[SaleDate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract data FACT\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of SaleTransaction]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Extract data FACT\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of SaleTransaction]"
+                      name="Copy of SaleTransaction"
+                      precision="18"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].Columns[SaleTransaction]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Extract data FACT\Data Conversion 1.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Extract data FACT\Data Conversion 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract data FACT\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extract data FACT\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract data FACT\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extract data FACT\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extract data FACT\Sales OLE DB Destination"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
+              name="Sales OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[FACT_SALES]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extract data FACT\Sales OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Villa_Liquor_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Villa_Liquor_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Extract data FACT\Sales OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extract data FACT\Sales OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of BarCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Copy of BarCode"
+                      externalMetadataColumnId="Package\Extract data FACT\Sales OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BarCode]"
+                      lineageId="Package\Extract data FACT\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of BarCode]" />
+                    <inputColumn
+                      refId="Package\Extract data FACT\Sales OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of SaleDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Copy of SaleDate"
+                      externalMetadataColumnId="Package\Extract data FACT\Sales OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SaleDate]"
+                      lineageId="Package\Extract data FACT\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of SaleDate]" />
+                    <inputColumn
+                      refId="Package\Extract data FACT\Sales OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of SaleTransaction]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of SaleTransaction"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\Extract data FACT\Sales OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SaleTransaction]"
+                      lineageId="Package\Extract data FACT\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of SaleTransaction]" />
+                    <inputColumn
+                      refId="Package\Extract data FACT\Sales OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Price]"
+                      cachedDataType="cy"
+                      cachedName="Copy of Price"
+                      externalMetadataColumnId="Package\Extract data FACT\Sales OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Price]"
+                      lineageId="Package\Extract data FACT\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Price]" />
+                    <inputColumn
+                      refId="Package\Extract data FACT\Sales OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Qty]"
+                      cachedDataType="i4"
+                      cachedName="Copy of Qty"
+                      externalMetadataColumnId="Package\Extract data FACT\Sales OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Qty]"
+                      lineageId="Package\Extract data FACT\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Qty]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extract data FACT\Sales OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BarCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="BarCode" />
+                    <externalMetadataColumn
+                      refId="Package\Extract data FACT\Sales OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SaleDate]"
+                      dataType="dbTimeStamp"
+                      name="SaleDate" />
+                    <externalMetadataColumn
+                      refId="Package\Extract data FACT\Sales OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SaleTransaction]"
+                      dataType="i4"
+                      name="SaleTransaction" />
+                    <externalMetadataColumn
+                      refId="Package\Extract data FACT\Sales OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Price]"
+                      dataType="cy"
+                      name="Price" />
+                    <externalMetadataColumn
+                      refId="Package\Extract data FACT\Sales OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Qty]"
+                      dataType="i4"
+                      name="Qty" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extract data FACT\Sales OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Extract data FACT\Sales OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract data FACT\Sales OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extract data FACT\Sales OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract data FACT\Sales OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extract data FACT\Sales OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extract data FACT\Sales OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Sales OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+	BarCode, 
+	Price, Qty,
+	CONVERT(
+		datetime, CONVERT(
+							char(19), Date, 126
+							)
+			) AS SaleDate,
+	ROW_NUMBER() OVER 
+		(
+			PARTITION BY 
+						Barcode,
+						CONVERT(
+								datetime, CONVERT(char(19), Date, 126)
+												)
+			ORDER BY 
+						CONVERT(
+								datetime, CONVERT(char(19), Date, 126
+												)
+								) DESC
+		) as SaleTransaction
+FROM  
+	dbo.Sales
+GROUP BY 
+	BarCode,
+	Price, Qty, CONVERT(datetime, CONVERT(char(19), Date, 126))</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extract data FACT\Sales OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{2CDEB9D9-BBD7-4121-935D-79A068121A23}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.VillaPosDWP]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].Columns[BarCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BarCode]"
+                      length="30"
+                      lineageId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].Columns[BarCode]"
+                      name="BarCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].Columns[Price]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Price]"
+                      lineageId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].Columns[Price]"
+                      name="Price"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].Columns[Qty]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Qty]"
+                      lineageId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].Columns[Qty]"
+                      name="Qty"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].Columns[SaleDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SaleDate]"
+                      lineageId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].Columns[SaleDate]"
+                      name="SaleDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].Columns[SaleTransaction]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SaleTransaction]"
+                      lineageId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].Columns[SaleTransaction]"
+                      name="SaleTransaction"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BarCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="BarCode" />
+                    <externalMetadataColumn
+                      refId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Price]"
+                      dataType="cy"
+                      name="Price" />
+                    <externalMetadataColumn
+                      refId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Qty]"
+                      dataType="i4"
+                      name="Qty" />
+                    <externalMetadataColumn
+                      refId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SaleDate]"
+                      dataType="dbTimeStamp"
+                      name="SaleDate" />
+                    <externalMetadataColumn
+                      refId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SaleTransaction]"
+                      dataType="i8"
+                      name="SaleTransaction" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BarCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BarCode]"
+                      name="BarCode" />
+                    <outputColumn
+                      refId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Price]"
+                      dataType="cy"
+                      lineageId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Price]"
+                      name="Price" />
+                    <outputColumn
+                      refId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Qty]"
+                      dataType="i4"
+                      lineageId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Qty]"
+                      name="Qty" />
+                    <outputColumn
+                      refId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SaleDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SaleDate]"
+                      name="SaleDate" />
+                    <outputColumn
+                      refId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SaleTransaction]"
+                      dataType="i8"
+                      lineageId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SaleTransaction]"
+                      name="SaleTransaction" />
+                    <outputColumn
+                      refId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extract data FACT\Supply OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
               localeId="1033"
-              name="OLE DB Destination"
+              name="Supply OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Supply]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT  
+		BarCode,
+		Date,
+		Sum(Qty)Qty
+FROM
+		dbo.Supply
+GROUP BY
+		 BarCode, Date</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extract data FACT\Supply OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{2CDEB9D9-BBD7-4121-935D-79A068121A23}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.VillaPosDWP]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].Columns[BarCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BarCode]"
+                      length="30"
+                      lineageId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].Columns[BarCode]"
+                      name="BarCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].Columns[Qty]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Qty]"
+                      lineageId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].Columns[Qty]"
+                      name="Qty"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].Columns[Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Date]"
+                      lineageId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].Columns[Date]"
+                      name="Date"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BarCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="BarCode" />
+                    <externalMetadataColumn
+                      refId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Qty]"
+                      dataType="i4"
+                      name="Qty" />
+                    <externalMetadataColumn
+                      refId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Date]"
+                      dataType="dbDate"
+                      name="Date" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BarCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BarCode]"
+                      name="BarCode" />
+                    <outputColumn
+                      refId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Qty]"
+                      dataType="i4"
+                      lineageId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Qty]"
+                      name="Qty" />
+                    <outputColumn
+                      refId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Date]"
+                      dataType="dbDate"
+                      lineageId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Date]"
+                      name="Date" />
+                    <outputColumn
+                      refId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extract data FACT\Supplyb  OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Supplyb  OLE DB Destination"
               usesDispositions="true"
               version="4">
               <properties>
@@ -538,7 +935,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions"></property>
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
@@ -546,7 +943,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Extract data FACT\OLE DB Destination.Connections[OleDbConnection]"
+                  refId="Package\Extract data FACT\Supplyb  OLE DB Destination.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[localhost.Villa_Liquor_DW]"
                   connectionManagerRefId="Package.ConnectionManagers[localhost.Villa_Liquor_DW]"
                   description="The OLE DB runtime connection used to access the database."
@@ -554,591 +951,73 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  refId="Package\Extract data FACT\Supplyb  OLE DB Destination.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[barcode]"
+                      refId="Package\Extract data FACT\Supplyb  OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of BarCode]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="30"
-                      cachedName="barcode"
-                      externalMetadataColumnId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[barcode]"
-                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[barcode]" />
+                      cachedName="Copy of BarCode"
+                      externalMetadataColumnId="Package\Extract data FACT\Supplyb  OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Barcode]"
+                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of BarCode]" />
                     <inputColumn
-                      refId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[btlprice]"
-                      cachedDataType="cy"
-                      cachedName="btlprice"
-                      externalMetadataColumnId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[btlprice]"
-                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[btlprice]" />
+                      refId="Package\Extract data FACT\Supplyb  OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Copy of Date"
+                      externalMetadataColumnId="Package\Extract data FACT\Supplyb  OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Date]" />
                     <inputColumn
-                      refId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[date_value]"
-                      cachedDataType="dbDate"
-                      cachedName="date_value"
-                      externalMetadataColumnId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_value]"
-                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[date_value]" />
-                    <inputColumn
-                      refId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[vendorID]"
+                      refId="Package\Extract data FACT\Supplyb  OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Qty]"
                       cachedDataType="numeric"
-                      cachedName="vendorID"
+                      cachedName="Copy of Qty"
                       cachedPrecision="18"
-                      externalMetadataColumnId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[vendorID]"
-                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[vendorID]" />
-                    <inputColumn
-                      refId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[discountID]"
-                      cachedDataType="numeric"
-                      cachedName="discountID"
-                      cachedPrecision="18"
-                      externalMetadataColumnId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[discountID]"
-                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[discountID]" />
-                    <inputColumn
-                      refId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[qty]"
-                      cachedDataType="numeric"
-                      cachedName="qty"
-                      cachedPrecision="18"
-                      externalMetadataColumnId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[qty]"
-                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[qty]" />
-                    <inputColumn
-                      refId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ordernumber]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="20"
-                      cachedName="ordernumber"
-                      externalMetadataColumnId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ordernumber]"
-                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[ordernumber]" />
-                    <inputColumn
-                      refId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[unitprice]"
-                      cachedDataType="cy"
-                      cachedName="unitprice"
-                      externalMetadataColumnId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unitprice]"
-                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[unitprice]" />
-                    <inputColumn
-                      refId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[casepack]"
-                      cachedDataType="numeric"
-                      cachedName="casepack"
-                      cachedPrecision="18"
-                      externalMetadataColumnId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[casepack]"
-                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[casepack]" />
-                    <inputColumn
-                      refId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[total]"
-                      cachedDataType="numeric"
-                      cachedName="total"
-                      cachedPrecision="18"
-                      externalMetadataColumnId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[total]"
-                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[total]" />
-                    <inputColumn
-                      refId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[listprice]"
-                      cachedDataType="cy"
-                      cachedName="listprice"
-                      externalMetadataColumnId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[listprice]"
-                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[listprice]" />
-                    <inputColumn
-                      refId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[comments]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="500"
-                      cachedName="comments"
-                      externalMetadataColumnId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[comments]"
-                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[comments]" />
-                    <inputColumn
-                      refId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[inv]"
-                      cachedDataType="numeric"
-                      cachedName="inv"
-                      cachedPrecision="18"
-                      externalMetadataColumnId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[inv]"
-                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[inv]" />
-                    <inputColumn
-                      refId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[supplyID]"
-                      cachedDataType="numeric"
-                      cachedName="supplyID"
-                      cachedPrecision="18"
-                      externalMetadataColumnId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[supplyID]"
-                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[supplyID]" />
-                    <inputColumn
-                      refId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[minprice]"
-                      cachedDataType="cy"
-                      cachedName="minprice"
-                      externalMetadataColumnId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[minprice]"
-                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[minprice]" />
+                      externalMetadataColumnId="Package\Extract data FACT\Supplyb  OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Qty]"
+                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Qty]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[barcode]"
+                      refId="Package\Extract data FACT\Supplyb  OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Barcode]"
                       codePage="1252"
                       dataType="str"
                       length="30"
-                      name="barcode" />
+                      name="Barcode" />
                     <externalMetadataColumn
-                      refId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[btlprice]"
-                      dataType="cy"
-                      name="btlprice" />
-                    <externalMetadataColumn
-                      refId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_value]"
+                      refId="Package\Extract data FACT\Supplyb  OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
                       dataType="dbDate"
-                      name="date_value" />
+                      name="Date" />
                     <externalMetadataColumn
-                      refId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[vendorID]"
-                      dataType="numeric"
-                      name="vendorID"
-                      precision="18" />
-                    <externalMetadataColumn
-                      refId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[discountID]"
-                      dataType="numeric"
-                      name="discountID"
-                      precision="18" />
-                    <externalMetadataColumn
-                      refId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[qty]"
-                      dataType="numeric"
-                      name="qty"
-                      precision="18" />
-                    <externalMetadataColumn
-                      refId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ordernumber]"
-                      codePage="1252"
-                      dataType="str"
-                      length="20"
-                      name="ordernumber" />
-                    <externalMetadataColumn
-                      refId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unitprice]"
-                      dataType="cy"
-                      name="unitprice" />
-                    <externalMetadataColumn
-                      refId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[casepack]"
-                      dataType="numeric"
-                      name="casepack"
-                      precision="18" />
-                    <externalMetadataColumn
-                      refId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[total]"
-                      dataType="numeric"
-                      name="total"
-                      precision="18" />
-                    <externalMetadataColumn
-                      refId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[listprice]"
-                      dataType="cy"
-                      name="listprice" />
-                    <externalMetadataColumn
-                      refId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[comments]"
-                      codePage="1252"
-                      dataType="str"
-                      length="500"
-                      name="comments" />
-                    <externalMetadataColumn
-                      refId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[inv]"
-                      dataType="numeric"
-                      name="inv"
-                      precision="18" />
-                    <externalMetadataColumn
-                      refId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[supplyID]"
-                      dataType="numeric"
-                      name="supplyID"
-                      precision="18" />
-                    <externalMetadataColumn
-                      refId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[minprice]"
-                      dataType="cy"
-                      name="minprice" />
+                      refId="Package\Extract data FACT\Supplyb  OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Qty]"
+                      dataType="i4"
+                      name="Qty" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Extract data FACT\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\Extract data FACT\Supplyb  OLE DB Destination.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\Extract data FACT\Supplyb  OLE DB Destination.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Extract data FACT\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Extract data FACT\Supplyb  OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Extract data FACT\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Extract data FACT\Supplyb  OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Extract data FACT\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Extract data FACT\Supplyb  OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Extract data FACT\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Extract data FACT\Supplyb  OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Extract data FACT\OLE DB Source"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
-              description="OLE DB Source"
-              localeId="1033"
-              name="OLE DB Source"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[Supply]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.String"
-                  description="The variable that contains the SQL command to be executed."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.String"
-                  description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Extract data FACT\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="{2CDEB9D9-BBD7-4121-935D-79A068121A23}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[localhost.VillaPosDWP]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output]"
-                  name="OLE DB Source Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[BarCode]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BarCode]"
-                      length="30"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[BarCode]"
-                      name="BarCode"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[Qty]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Qty]"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[Qty]"
-                      name="Qty"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[Total]"
-                      dataType="cy"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Total]"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[Total]"
-                      name="Total"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Date]"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date]"
-                      name="Date"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[SupplyID]"
-                      dataType="i8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SupplyID]"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[SupplyID]"
-                      name="SupplyID"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[BtlPrice]"
-                      dataType="cy"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BtlPrice]"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[BtlPrice]"
-                      name="BtlPrice"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[VendorID]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VendorID]"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[VendorID]"
-                      name="VendorID"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[DiscountID]"
-                      dataType="i2"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DiscountID]"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[DiscountID]"
-                      name="DiscountID"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderNumber]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OrderNumber]"
-                      length="20"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderNumber]"
-                      name="OrderNumber"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitPrice]"
-                      dataType="cy"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UnitPrice]"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitPrice]"
-                      name="UnitPrice"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[CasePack]"
-                      dataType="i2"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CasePack]"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[CasePack]"
-                      name="CasePack"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[ListPrice]"
-                      dataType="cy"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ListPrice]"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[ListPrice]"
-                      name="ListPrice"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[MinPrice]"
-                      dataType="cy"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MinPrice]"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[MinPrice]"
-                      name="MinPrice"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[Comments]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Comments]"
-                      length="500"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[Comments]"
-                      name="Comments"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[Inv]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Inv]"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].Columns[Inv]"
-                      name="Inv"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BarCode]"
-                      codePage="1252"
-                      dataType="str"
-                      length="30"
-                      name="BarCode" />
-                    <externalMetadataColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Qty]"
-                      dataType="i4"
-                      name="Qty" />
-                    <externalMetadataColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Total]"
-                      dataType="cy"
-                      name="Total" />
-                    <externalMetadataColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Date]"
-                      dataType="dbDate"
-                      name="Date" />
-                    <externalMetadataColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SupplyID]"
-                      dataType="i8"
-                      name="SupplyID" />
-                    <externalMetadataColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BtlPrice]"
-                      dataType="cy"
-                      name="BtlPrice" />
-                    <externalMetadataColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VendorID]"
-                      dataType="i4"
-                      name="VendorID" />
-                    <externalMetadataColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DiscountID]"
-                      dataType="i2"
-                      name="DiscountID" />
-                    <externalMetadataColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OrderNumber]"
-                      codePage="1252"
-                      dataType="str"
-                      length="20"
-                      name="OrderNumber" />
-                    <externalMetadataColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Inv]"
-                      dataType="i4"
-                      name="Inv" />
-                    <externalMetadataColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UnitPrice]"
-                      dataType="cy"
-                      name="UnitPrice" />
-                    <externalMetadataColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CasePack]"
-                      dataType="i2"
-                      name="CasePack" />
-                    <externalMetadataColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ListPrice]"
-                      dataType="cy"
-                      name="ListPrice" />
-                    <externalMetadataColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MinPrice]"
-                      dataType="cy"
-                      name="MinPrice" />
-                    <externalMetadataColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Comments]"
-                      codePage="1252"
-                      dataType="str"
-                      length="500"
-                      name="Comments" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Error Output]"
-                  isErrorOut="true"
-                  name="OLE DB Source Error Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SupplyID]"
-                      dataType="i8"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SupplyID]"
-                      name="SupplyID" />
-                    <outputColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BarCode]"
-                      codePage="1252"
-                      dataType="str"
-                      length="30"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BarCode]"
-                      name="BarCode" />
-                    <outputColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BtlPrice]"
-                      dataType="cy"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BtlPrice]"
-                      name="BtlPrice" />
-                    <outputColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Qty]"
-                      dataType="i4"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Qty]"
-                      name="Qty" />
-                    <outputColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VendorID]"
-                      dataType="i4"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VendorID]"
-                      name="VendorID" />
-                    <outputColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DiscountID]"
-                      dataType="i2"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DiscountID]"
-                      name="DiscountID" />
-                    <outputColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Total]"
-                      dataType="cy"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Total]"
-                      name="Total" />
-                    <outputColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OrderNumber]"
-                      codePage="1252"
-                      dataType="str"
-                      length="20"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OrderNumber]"
-                      name="OrderNumber" />
-                    <outputColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UnitPrice]"
-                      dataType="cy"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UnitPrice]"
-                      name="UnitPrice" />
-                    <outputColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CasePack]"
-                      dataType="i2"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CasePack]"
-                      name="CasePack" />
-                    <outputColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Date]"
-                      dataType="dbDate"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Date]"
-                      name="Date" />
-                    <outputColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ListPrice]"
-                      dataType="cy"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ListPrice]"
-                      name="ListPrice" />
-                    <outputColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MinPrice]"
-                      dataType="cy"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MinPrice]"
-                      name="MinPrice" />
-                    <outputColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Comments]"
-                      codePage="1252"
-                      dataType="str"
-                      length="500"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Comments]"
-                      name="Comments" />
-                    <outputColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                    <outputColumn
-                      refId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Inv]"
-                      dataType="i4"
-                      lineageId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Inv]"
-                      name="Inv" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -1148,14 +1027,24 @@
           <paths>
             <path
               refId="Package\Extract data FACT.Paths[Data Conversion Output]"
-              endId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              endId="Package\Extract data FACT\Supplyb  OLE DB Destination.Inputs[OLE DB Destination Input]"
               name="Data Conversion Output"
               startId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Extract data FACT.Paths[Data Conversion Output1]"
+              endId="Package\Extract data FACT\Sales OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Extract data FACT\Data Conversion 1.Outputs[Data Conversion Output]" />
             <path
               refId="Package\Extract data FACT.Paths[OLE DB Source Output]"
               endId="Package\Extract data FACT\Data Conversion.Inputs[Data Conversion Input]"
               name="OLE DB Source Output"
-              startId="Package\Extract data FACT\OLE DB Source.Outputs[OLE DB Source Output]" />
+              startId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Extract data FACT.Paths[OLE DB Source Output1]"
+              endId="Package\Extract data FACT\Data Conversion 1.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -1174,7 +1063,7 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="164,42.6666666666667"
+          Size="163.2,41.6"
           Id="Package\Extract data FACT"
           TopLeft="156.7499977462,26.299999628067" />
       </GraphLayout>
@@ -1184,33 +1073,49 @@
     design-time-name="Package\Extract data FACT">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="172,42.6666666666667"
-          Id="Package\Extract data FACT\OLE DB Destination"
-          TopLeft="70.9999999999999,152.571428571429" />
+          Size="214.4,41.6"
+          Id="Package\Extract data FACT\Supplyb  OLE DB Destination"
+          TopLeft="69.6153871688617,199.727279942226" />
         <NodeLayout
-          Size="150.666666666667,42.6666666666667"
-          Id="Package\Extract data FACT\OLE DB Source"
-          TopLeft="76.142857142857,10.2857142857143" />
+          Size="184.8,41.6"
+          Id="Package\Extract data FACT\Supply OLE DB Source"
+          TopLeft="76.142857142857,12.2554113265647" />
         <NodeLayout
-          Size="157.333333333334,42.6666666666667"
+          Size="156,41.6"
           Id="Package\Extract data FACT\Data Conversion"
-          TopLeft="75.7142857142857,79.0476190476191" />
+          TopLeft="74.2307719535378,96.5151550016677" />
+        <NodeLayout
+          Size="177.6,41.6"
+          Id="Package\Extract data FACT\Sales OLE DB Source"
+          TopLeft="336.153858483896,7.105427357601E-15" />
         <EdgeLayout
           Id="Package\Extract data FACT.Paths[OLE DB Source Output]"
-          TopLeft="152.928571428571,52.9523809523809">
+          TopLeft="168.542857142857,53.8554113265647">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,26.0952380952381"
+              EndConnector="-16.3120851893192,42.659743675103"
               Start="0,0"
-              End="0,18.5952380952381">
+              End="-16.3120851893192,35.159743675103">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.5952380952381" />
+                    End="0,17.3298718375515" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.3298718375515"
+                    Point2="0,21.3298718375515"
+                    Point3="-4,21.3298718375515" />
+                  <mssgle:LineSegment
+                    End="-12.3120851893192,21.3298718375515" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-12.3120851893192,21.3298718375515"
+                    Point2="-16.3120851893192,21.3298718375515"
+                    Point3="-16.3120851893192,25.3298718375515" />
+                  <mssgle:LineSegment
+                    End="-16.3120851893192,35.159743675103" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1221,18 +1126,106 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Extract data FACT.Paths[Data Conversion Output]"
-          TopLeft="155.690476190476,121.714285714286">
+          TopLeft="152.230771953538,138.115155001668">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,30.8571428571433"
+              EndConnector="24.5846152153239,61.6121249405583"
               Start="0,0"
-              End="0,23.3571428571433">
+              End="24.5846152153239,54.1121249405583">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.3571428571433" />
+                    End="0,26.8060624702792" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.8060624702792"
+                    Point2="0,30.8060624702792"
+                    Point3="4,30.8060624702792" />
+                  <mssgle:LineSegment
+                    End="20.5846152153239,30.8060624702792" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20.5846152153239,30.8060624702792"
+                    Point2="24.5846152153239,30.8060624702792"
+                    Point3="24.5846152153239,34.8060624702792" />
+                  <mssgle:LineSegment
+                    End="24.5846152153239,54.1121249405583" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Extract data FACT\Data Conversion 1"
+          TopLeft="393.076937494899,111.8787919203" />
+        <EdgeLayout
+          Id="Package\Extract data FACT.Paths[OLE DB Source Output1]"
+          TopLeft="424.953858483896,41.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="50.5230790110034,70.2787919203004"
+              Start="0,0"
+              End="50.5230790110034,62.7787919203004">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.1393959601502" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.1393959601502"
+                    Point2="0,35.1393959601502"
+                    Point3="4,35.1393959601502" />
+                  <mssgle:LineSegment
+                    End="46.5230790110034,35.1393959601502" />
+                  <mssgle:CubicBezierSegment
+                    Point1="46.5230790110034,35.1393959601502"
+                    Point2="50.5230790110034,35.1393959601502"
+                    Point3="50.5230790110034,39.1393959601502" />
+                  <mssgle:LineSegment
+                    End="50.5230790110034,62.7787919203004" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="198.4,41.6"
+          Id="Package\Extract data FACT\Sales OLE DB Destination"
+          TopLeft="469.615401840775,213.8787919203" />
+        <EdgeLayout
+          Id="Package\Extract data FACT.Paths[Data Conversion Output1]"
+          TopLeft="475.476937494899,153.4787919203">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="93.3384643458755,60.4"
+              Start="0,0"
+              End="93.3384643458755,52.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.2"
+                    Point2="0,30.2"
+                    Point3="4,30.2" />
+                  <mssgle:LineSegment
+                    End="89.3384643458755,30.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="89.3384643458755,30.2"
+                    Point2="93.3384643458755,30.2"
+                    Point3="93.3384643458755,34.2" />
+                  <mssgle:LineSegment
+                    End="93.3384643458755,52.9" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1245,7 +1238,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Extract data FACT\OLE DB Destination">
+    design-time-name="Package\Extract data FACT\Supplyb  OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1258,7 +1251,28 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Extract data FACT\OLE DB Source">
+    design-time-name="Package\Extract data FACT\Supply OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract data FACT\Sales OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract data FACT\Sales OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
