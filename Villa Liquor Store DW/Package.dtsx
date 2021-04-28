@@ -7,12 +7,12 @@
   DTS:CreatorName="DESKTOP-74QIKVU\DELL"
   DTS:DTSID="{EC0E208D-A853-45A8-9BC0-1D3D9C18E2DB}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.157"
+  DTS:LastModifiedProductVersion="15.0.2000.152"
   DTS:LocaleID="3072"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="35"
-  DTS:VersionGUID="{9CD8EF3B-EFD1-4A3B-840B-5F10F0ABD1E5}">
+  DTS:VersionBuild="37"
+  DTS:VersionGUID="{89CC217A-53DF-484D-ABB6-3D5D1F117177}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -70,17 +70,17 @@
                       cachedName="Qty"
                       lineageId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].Columns[Qty]" />
                     <inputColumn
-                      refId="Package\Extract data FACT\Data Conversion.Inputs[Data Conversion Input].Columns[Date]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Date"
-                      lineageId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].Columns[Date]" />
-                    <inputColumn
                       refId="Package\Extract data FACT\Data Conversion.Inputs[Data Conversion Input].Columns[BarCode]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="30"
                       cachedName="BarCode"
                       lineageId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].Columns[BarCode]" />
+                    <inputColumn
+                      refId="Package\Extract data FACT\Data Conversion.Inputs[Data Conversion Input].Columns[SaleDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="SaleDate"
+                      lineageId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].Columns[SaleDate]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -92,47 +92,6 @@
                   name="Data Conversion Output"
                   synchronousInputId="Package\Extract data FACT\Data Conversion.Inputs[Data Conversion Input]">
                   <outputColumns>
-                    <outputColumn
-                      refId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Qty]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Qty]"
-                      name="Copy of Qty"
-                      precision="18"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].Columns[Qty]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Date]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Date]"
-                      name="Copy of Date"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].Columns[Date]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
                     <outputColumn
                       refId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of BarCode]"
                       codePage="1252"
@@ -149,6 +108,46 @@
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
                           name="SourceInputColumnLineageID">#{Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].Columns[BarCode]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Qty]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Qty]"
+                      name="Copy of Qty"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].Columns[Qty]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SaleDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SaleDate]"
+                      name="Copy of SaleDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].Columns[SaleDate]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -202,11 +201,6 @@
                       cachedName="BarCode"
                       lineageId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].Columns[BarCode]" />
                     <inputColumn
-                      refId="Package\Extract data FACT\Data Conversion 1.Inputs[Data Conversion Input].Columns[Price]"
-                      cachedDataType="cy"
-                      cachedName="Price"
-                      lineageId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].Columns[Price]" />
-                    <inputColumn
                       refId="Package\Extract data FACT\Data Conversion 1.Inputs[Data Conversion Input].Columns[Qty]"
                       cachedDataType="i4"
                       cachedName="Qty"
@@ -216,6 +210,11 @@
                       cachedDataType="dbTimeStamp"
                       cachedName="SaleDate"
                       lineageId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].Columns[SaleDate]" />
+                    <inputColumn
+                      refId="Package\Extract data FACT\Data Conversion 1.Inputs[Data Conversion Input].Columns[Price]"
+                      cachedDataType="cy"
+                      cachedName="Price"
+                      lineageId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].Columns[Price]" />
                     <inputColumn
                       refId="Package\Extract data FACT\Data Conversion 1.Inputs[Data Conversion Input].Columns[SaleTransaction]"
                       cachedDataType="i8"
@@ -248,26 +247,6 @@
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
                           name="SourceInputColumnLineageID">#{Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].Columns[BarCode]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Extract data FACT\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Price]"
-                      dataType="cy"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Extract data FACT\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Price]"
-                      name="Copy of Price"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].Columns[Price]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -315,13 +294,32 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
+                      refId="Package\Extract data FACT\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Price]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Extract data FACT\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Price]"
+                      name="Copy of Price"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].Columns[Price]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
                       refId="Package\Extract data FACT\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of SaleTransaction]"
-                      dataType="numeric"
+                      dataType="i8"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       lineageId="Package\Extract data FACT\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of SaleTransaction]"
                       name="Copy of SaleTransaction"
-                      precision="18"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -450,9 +448,8 @@
                       lineageId="Package\Extract data FACT\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of SaleDate]" />
                     <inputColumn
                       refId="Package\Extract data FACT\Sales OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of SaleTransaction]"
-                      cachedDataType="numeric"
+                      cachedDataType="i8"
                       cachedName="Copy of SaleTransaction"
-                      cachedPrecision="18"
                       externalMetadataColumnId="Package\Extract data FACT\Sales OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SaleTransaction]"
                       lineageId="Package\Extract data FACT\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of SaleTransaction]" />
                     <inputColumn
@@ -618,15 +615,6 @@ GROUP BY
                       name="BarCode"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].Columns[Price]"
-                      dataType="cy"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Price]"
-                      lineageId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].Columns[Price]"
-                      name="Price"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].Columns[Qty]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
@@ -643,6 +631,15 @@ GROUP BY
                       externalMetadataColumnId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SaleDate]"
                       lineageId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].Columns[SaleDate]"
                       name="SaleDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].Columns[Price]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Price]"
+                      lineageId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].Columns[Price]"
+                      name="Price"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].Columns[SaleTransaction]"
@@ -663,10 +660,6 @@ GROUP BY
                       length="30"
                       name="BarCode" />
                     <externalMetadataColumn
-                      refId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Price]"
-                      dataType="cy"
-                      name="Price" />
-                    <externalMetadataColumn
                       refId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Qty]"
                       dataType="i4"
                       name="Qty" />
@@ -674,6 +667,10 @@ GROUP BY
                       refId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SaleDate]"
                       dataType="dbTimeStamp"
                       name="SaleDate" />
+                    <externalMetadataColumn
+                      refId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Price]"
+                      dataType="cy"
+                      name="Price" />
                     <externalMetadataColumn
                       refId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SaleTransaction]"
                       dataType="i8"
@@ -698,15 +695,15 @@ GROUP BY
                       lineageId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Price]"
                       name="Price" />
                     <outputColumn
-                      refId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Qty]"
-                      dataType="i4"
-                      lineageId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Qty]"
-                      name="Qty" />
-                    <outputColumn
                       refId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SaleDate]"
                       dataType="dbTimeStamp"
                       lineageId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SaleDate]"
                       name="SaleDate" />
+                    <outputColumn
+                      refId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Qty]"
+                      dataType="i4"
+                      lineageId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Qty]"
+                      name="Qty" />
                     <outputColumn
                       refId="Package\Extract data FACT\Sales OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SaleTransaction]"
                       dataType="i8"
@@ -756,13 +753,15 @@ GROUP BY
                   description="The SQL command to be executed."
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT  
+		distinct
 		BarCode,
-		Date,
-		Sum(Qty)Qty
+		CONVERT(
+			datetime, CONVERT(
+			char(19), Date, 126
+		)) AS SaleDate,
+		Qty
 FROM
-		dbo.Supply
-GROUP BY
-		 BarCode, Date</property>
+		dbo.Supply</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -819,13 +818,13 @@ GROUP BY
                       name="Qty"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].Columns[Date]"
+                      refId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].Columns[SaleDate]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Date]"
-                      lineageId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].Columns[Date]"
-                      name="Date"
+                      externalMetadataColumnId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SaleDate]"
+                      lineageId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].Columns[SaleDate]"
+                      name="SaleDate"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
@@ -841,9 +840,9 @@ GROUP BY
                       dataType="i4"
                       name="Qty" />
                     <externalMetadataColumn
-                      refId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Date]"
-                      dataType="dbDate"
-                      name="Date" />
+                      refId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SaleDate]"
+                      dataType="dbTimeStamp"
+                      name="SaleDate" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -859,15 +858,15 @@ GROUP BY
                       lineageId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BarCode]"
                       name="BarCode" />
                     <outputColumn
+                      refId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SaleDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SaleDate]"
+                      name="SaleDate" />
+                    <outputColumn
                       refId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Qty]"
                       dataType="i4"
                       lineageId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Qty]"
                       name="Qty" />
-                    <outputColumn
-                      refId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Date]"
-                      dataType="dbDate"
-                      lineageId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Date]"
-                      name="Date" />
                     <outputColumn
                       refId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -966,16 +965,15 @@ GROUP BY
                       externalMetadataColumnId="Package\Extract data FACT\Supplyb  OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Barcode]"
                       lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of BarCode]" />
                     <inputColumn
-                      refId="Package\Extract data FACT\Supplyb  OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Date]"
+                      refId="Package\Extract data FACT\Supplyb  OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of SaleDate]"
                       cachedDataType="dbTimeStamp"
-                      cachedName="Copy of Date"
+                      cachedName="Copy of SaleDate"
                       externalMetadataColumnId="Package\Extract data FACT\Supplyb  OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
-                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Date]" />
+                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SaleDate]" />
                     <inputColumn
                       refId="Package\Extract data FACT\Supplyb  OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Qty]"
-                      cachedDataType="numeric"
+                      cachedDataType="i4"
                       cachedName="Copy of Qty"
-                      cachedPrecision="18"
                       externalMetadataColumnId="Package\Extract data FACT\Supplyb  OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Qty]"
                       lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Qty]" />
                   </inputColumns>
@@ -1063,7 +1061,7 @@ GROUP BY
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="163.2,41.6"
+          Size="163.333333333334,41.3333333333334"
           Id="Package\Extract data FACT"
           TopLeft="156.7499977462,26.299999628067" />
       </GraphLayout>
@@ -1075,47 +1073,43 @@ GROUP BY
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="214.4,41.6"
+          Size="198.666666666667,41.3333333333334"
+          Id="Package\Extract data FACT\Sales OLE DB Destination"
+          TopLeft="277.740404699935,154.078792989607" />
+        <NodeLayout
+          Size="214.666666666667,41.3333333333334"
           Id="Package\Extract data FACT\Supplyb  OLE DB Destination"
-          TopLeft="69.6153871688617,199.727279942226" />
+          TopLeft="42.1153875786436,155.527280732584" />
         <NodeLayout
-          Size="184.8,41.6"
-          Id="Package\Extract data FACT\Supply OLE DB Source"
-          TopLeft="76.142857142857,12.2554113265647" />
+          Size="164.666666666667,41.3333333333334"
+          Id="Package\Extract data FACT\Data Conversion 1"
+          TopLeft="292.451938994328,77.428792536314" />
         <NodeLayout
-          Size="156,41.6"
-          Id="Package\Extract data FACT\Data Conversion"
-          TopLeft="74.2307719535378,96.5151550016677" />
-        <NodeLayout
-          Size="177.6,41.6"
+          Size="177.333333333334,41.3333333333334"
           Id="Package\Extract data FACT\Sales OLE DB Source"
-          TopLeft="336.153858483896,7.105427357601E-15" />
+          TopLeft="290.528859163761,1.2999999767542" />
+        <NodeLayout
+          Size="157.333333333334,42.6666666666667"
+          Id="Package\Extract data FACT\Data Conversion"
+          TopLeft="40.480772456452,79.6151553038632" />
+        <NodeLayout
+          Size="184.666666666667,41.3333333333334"
+          Id="Package\Extract data FACT\Supply OLE DB Source"
+          TopLeft="33.0178577854695,3.80541147766247" />
         <EdgeLayout
-          Id="Package\Extract data FACT.Paths[OLE DB Source Output]"
-          TopLeft="168.542857142857,53.8554113265647">
+          Id="Package\Extract data FACT.Paths[Data Conversion Output1]"
+          TopLeft="375.929505180465,118.762125869647">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-16.3120851893192,42.659743675103"
+              EndConnector="0,35.3166671199599"
               Start="0,0"
-              End="-16.3120851893192,35.159743675103">
+              End="0,27.8166671199599">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,17.3298718375515" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,17.3298718375515"
-                    Point2="0,21.3298718375515"
-                    Point3="-4,21.3298718375515" />
-                  <mssgle:LineSegment
-                    End="-12.3120851893192,21.3298718375515" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-12.3120851893192,21.3298718375515"
-                    Point2="-16.3120851893192,21.3298718375515"
-                    Point3="-16.3120851893192,25.3298718375515" />
-                  <mssgle:LineSegment
-                    End="-16.3120851893192,35.159743675103" />
+                    End="0,27.8166671199599" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1126,30 +1120,30 @@ GROUP BY
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Extract data FACT.Paths[Data Conversion Output]"
-          TopLeft="152.230771953538,138.115155001668">
+          TopLeft="119.147439123119,122.28182197053">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="24.5846152153239,61.6121249405583"
+              EndConnector="30.3012817888583,33.2454587620537"
               Start="0,0"
-              End="24.5846152153239,54.1121249405583">
+              End="30.3012817888583,25.7454587620537">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.8060624702792" />
+                    End="0,12.6227293810268" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,26.8060624702792"
-                    Point2="0,30.8060624702792"
-                    Point3="4,30.8060624702792" />
+                    Point1="0,12.6227293810268"
+                    Point2="0,16.6227293810268"
+                    Point3="4,16.6227293810268" />
                   <mssgle:LineSegment
-                    End="20.5846152153239,30.8060624702792" />
+                    End="26.3012817888583,16.6227293810268" />
                   <mssgle:CubicBezierSegment
-                    Point1="20.5846152153239,30.8060624702792"
-                    Point2="24.5846152153239,30.8060624702792"
-                    Point3="24.5846152153239,34.8060624702792" />
+                    Point1="26.3012817888583,16.6227293810268"
+                    Point2="30.3012817888583,16.6227293810268"
+                    Point3="30.3012817888583,20.6227293810268" />
                   <mssgle:LineSegment
-                    End="24.5846152153239,54.1121249405583" />
+                    End="30.3012817888583,25.7454587620537" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1158,36 +1152,20 @@ GROUP BY
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\Extract data FACT\Data Conversion 1"
-          TopLeft="393.076937494899,111.8787919203" />
         <EdgeLayout
           Id="Package\Extract data FACT.Paths[OLE DB Source Output1]"
-          TopLeft="424.953858483896,41.6">
+          TopLeft="376.990399079045,42.6333333100875">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="50.5230790110034,70.2787919203004"
+              EndConnector="0,34.7954592262265"
               Start="0,0"
-              End="50.5230790110034,62.7787919203004">
+              End="0,27.2954592262265">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.1393959601502" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31.1393959601502"
-                    Point2="0,35.1393959601502"
-                    Point3="4,35.1393959601502" />
-                  <mssgle:LineSegment
-                    End="46.5230790110034,35.1393959601502" />
-                  <mssgle:CubicBezierSegment
-                    Point1="46.5230790110034,35.1393959601502"
-                    Point2="50.5230790110034,35.1393959601502"
-                    Point3="50.5230790110034,39.1393959601502" />
-                  <mssgle:LineSegment
-                    End="50.5230790110034,62.7787919203004" />
+                    End="0,27.2954592262265" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1196,36 +1174,20 @@ GROUP BY
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="198.4,41.6"
-          Id="Package\Extract data FACT\Sales OLE DB Destination"
-          TopLeft="469.615401840775,213.8787919203" />
         <EdgeLayout
-          Id="Package\Extract data FACT.Paths[Data Conversion Output1]"
-          TopLeft="475.476937494899,153.4787919203">
+          Id="Package\Extract data FACT.Paths[OLE DB Source Output]"
+          TopLeft="122.249315120961,45.1387448109958">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="93.3384643458755,60.4"
+              EndConnector="0,34.4764104928674"
               Start="0,0"
-              End="93.3384643458755,52.9">
+              End="0,26.9764104928674">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.2" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26.2"
-                    Point2="0,30.2"
-                    Point3="4,30.2" />
-                  <mssgle:LineSegment
-                    End="89.3384643458755,30.2" />
-                  <mssgle:CubicBezierSegment
-                    Point1="89.3384643458755,30.2"
-                    Point2="93.3384643458755,30.2"
-                    Point3="93.3384643458755,34.2" />
-                  <mssgle:LineSegment
-                    End="93.3384643458755,52.9" />
+                    End="0,26.9764104928674" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1238,7 +1200,7 @@ GROUP BY
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Extract data FACT\Supplyb  OLE DB Destination">
+    design-time-name="Package\Extract data FACT\Sales OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1251,7 +1213,7 @@ GROUP BY
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Extract data FACT\Supply OLE DB Source">
+    design-time-name="Package\Extract data FACT\Supplyb  OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1272,7 +1234,7 @@ GROUP BY
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Extract data FACT\Sales OLE DB Destination">
+    design-time-name="Package\Extract data FACT\Supply OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
