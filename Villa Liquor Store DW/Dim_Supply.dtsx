@@ -7,12 +7,12 @@
   DTS:CreatorName="DESKTOP-74QIKVU\DELL"
   DTS:DTSID="{EC0E208D-A853-45A8-9BC0-1D3D9C18E2DB}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.157"
+  DTS:LastModifiedProductVersion="15.0.2000.152"
   DTS:LocaleID="3072"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="60"
-  DTS:VersionGUID="{F5A7FCF6-D7C0-4C53-A558-76380ED8EEDE}">
+  DTS:VersionBuild="64"
+  DTS:VersionGUID="{40A0A459-F3E6-4161-92B2-2C87ADD361DD}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -98,6 +98,11 @@
                       cachedDataType="i8"
                       cachedName="transNumber"
                       lineageId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].Columns[transNumber]" />
+                    <inputColumn
+                      refId="Package\Extract data FACT\Data Conversion.Inputs[Data Conversion Input].Columns[UnitPrice]"
+                      cachedDataType="cy"
+                      cachedName="UnitPrice"
+                      lineageId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitPrice]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -233,6 +238,26 @@
                           name="FastParse">false</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[TUnitPrice]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[TUnitPrice]"
+                      name="TUnitPrice"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitPrice]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -281,7 +306,7 @@
                   expressionType="Notify"
                   name="SqlCommandParam"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DIM_SUPPLY]) [refTable]
-where [refTable].[Barcode] = ? and [refTable].[Date] = ? and [refTable].[OrderNumber] = ? and [refTable].[TransNumber] = ?</property>
+where [refTable].[Barcode] = ? and [refTable].[Date] = ? and [refTable].[OrderNumber] = ? and [refTable].[TransNumber] = ? and [refTable].[UnitPrice] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the type of connection used to access the reference dataset."
@@ -312,12 +337,12 @@ where [refTable].[Barcode] = ? and [refTable].[Date] = ? and [refTable].[OrderNu
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Barcode" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Date" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TransNumber" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="VendorID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OrderNumber" dataType="DT_STR" length="20" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Qty" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Barcode" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Date" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TransNumber" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="VendorID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="UnitPrice" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OrderNumber" dataType="DT_STR" length="20" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Qty" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[TBarCode]};#{Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[TDate]};#{Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[TOrderNumber]};#{Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[TtransNumber]};</property>
+                  name="ParameterMap">#{Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[TBarCode]};#{Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[TDate]};#{Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[TOrderNumber]};#{Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[TtransNumber]};#{Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[TUnitPrice]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -402,6 +427,22 @@ where [refTable].[Barcode] = ? and [refTable].[Date] = ? and [refTable].[OrderNu
                           dataType="System.String"
                           description="Specifies the column in the reference table that a column joins."
                           name="JoinToReferenceColumn">Date</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Extract data FACT\Lookup.Inputs[Lookup Input].Columns[TUnitPrice]"
+                      cachedDataType="cy"
+                      cachedName="TUnitPrice"
+                      lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[TUnitPrice]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">UnitPrice</property>
                         <property
                           dataType="System.Null"
                           description="Specifies the column in the reference table from which a column is copied."
@@ -565,6 +606,12 @@ where [refTable].[Barcode] = ? and [refTable].[Date] = ? and [refTable].[OrderNu
                       cachedName="TDate"
                       externalMetadataColumnId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
                       lineageId="Package\Extract data FACT\Data Conversion.Outputs[Data Conversion Output].Columns[TDate]" />
+                    <inputColumn
+                      refId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UnitPrice]"
+                      cachedDataType="cy"
+                      cachedName="UnitPrice"
+                      externalMetadataColumnId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UnitPrice]"
+                      lineageId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitPrice]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -596,6 +643,10 @@ where [refTable].[Barcode] = ? and [refTable].[Date] = ? and [refTable].[OrderNu
                       refId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Qty]"
                       dataType="i4"
                       name="Qty" />
+                    <externalMetadataColumn
+                      refId="Package\Extract data FACT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UnitPrice]"
+                      dataType="cy"
+                      name="UnitPrice" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -655,8 +706,9 @@ where [refTable].[Barcode] = ? and [refTable].[Date] = ? and [refTable].[OrderNu
                                 BarCode,
                                 Date,
                                 Qty,
-                               VendorID,
+                                VendorID,
                                OrderNumber,
+                               UnitPrice,
 	              ROW_NUMBER () over (
                                     Partition By 
                                                      BarCode,
@@ -760,6 +812,15 @@ FROM
                       lineageId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].Columns[transNumber]"
                       name="transNumber"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitPrice]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UnitPrice]"
+                      lineageId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitPrice]"
+                      name="UnitPrice"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -791,6 +852,10 @@ FROM
                       refId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[transNumber]"
                       dataType="i8"
                       name="transNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UnitPrice]"
+                      dataType="cy"
+                      name="UnitPrice" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -827,6 +892,11 @@ FROM
                       length="20"
                       lineageId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OrderNumber]"
                       name="OrderNumber" />
+                    <outputColumn
+                      refId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UnitPrice]"
+                      dataType="cy"
+                      lineageId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UnitPrice]"
+                      name="UnitPrice" />
                     <outputColumn
                       refId="Package\Extract data FACT\Supply OLE DB Source.Outputs[OLE DB Source Error Output].Columns[transNumber]"
                       dataType="i8"
@@ -884,7 +954,7 @@ FROM
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="163.2,41.6"
+          Size="163.333333333334,41.3333333333334"
           Id="Package\Extract data FACT"
           TopLeft="156.7499977462,26.299999628067" />
       </GraphLayout>
@@ -896,13 +966,21 @@ FROM
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="184.8,41.6"
+          Size="184.666666666667,41.3333333333334"
           Id="Package\Extract data FACT\Supply OLE DB Source"
           TopLeft="55.3736256118153,15.8008660000954" />
         <NodeLayout
-          Size="156,41.6"
+          Size="170.666666666667,41.3333333333334"
+          Id="Package\Extract data FACT\OLE DB Destination"
+          TopLeft="293.461549225644,280.484858617091" />
+        <NodeLayout
+          Size="156,41.3333333333334"
           Id="Package\Extract data FACT\Data Conversion"
           TopLeft="180.769237399807,83.9090939402253" />
+        <NodeLayout
+          Size="113.333333333334,42.6666666666667"
+          Id="Package\Extract data FACT\Lookup"
+          TopLeft="366.923090381736,171.757581962151" />
         <EdgeLayout
           Id="Package\Extract data FACT.Paths[OLE DB Source Output]"
           TopLeft="147.773625611815,57.4008660000953">
@@ -937,36 +1015,68 @@ FROM
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="112.8,41.6"
-          Id="Package\Extract data FACT\Lookup"
-          TopLeft="366.923090381736,171.757581962151" />
         <EdgeLayout
-          Id="Package\Extract data FACT.Paths[Data Conversion Output]"
-          TopLeft="258.769237399807,125.509093940225">
+          Id="Package\Extract data FACT.Paths[Lookup No Match Output]"
+          TopLeft="423.589757048403,214.424248628818">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="164.553852981929,46.248488021926"
+              EndConnector="-44.7948744894254,66.0606099882733"
               Start="0,0"
-              End="164.553852981929,38.748488021926">
+              End="-44.7948744894254,58.5606099882733">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.124244010963" />
+                    End="0,29.0303049941367" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,19.124244010963"
-                    Point2="0,23.124244010963"
-                    Point3="4,23.124244010963" />
+                    Point1="0,29.0303049941367"
+                    Point2="0,33.0303049941367"
+                    Point3="-4,33.0303049941367" />
                   <mssgle:LineSegment
-                    End="160.553852981929,23.124244010963" />
+                    End="-40.7948744894254,33.0303049941367" />
                   <mssgle:CubicBezierSegment
-                    Point1="160.553852981929,23.124244010963"
-                    Point2="164.553852981929,23.124244010963"
-                    Point3="164.553852981929,27.124244010963" />
+                    Point1="-40.7948744894254,33.0303049941367"
+                    Point2="-44.7948744894254,33.0303049941367"
+                    Point3="-44.7948744894254,37.0303049941367" />
                   <mssgle:LineSegment
-                    End="164.553852981929,38.748488021926" />
+                    End="-44.7948744894254,58.5606099882733" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-78.2038239634627,38.0303049941367,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Extract data FACT.Paths[Data Conversion Output]"
+          TopLeft="258.769237399807,125.242427273559">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="164.820519648596,46.5151546885924"
+              Start="0,0"
+              End="164.820519648596,39.0151546885924">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.2575773442962" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.2575773442962"
+                    Point2="0,23.2575773442962"
+                    Point3="4,23.2575773442962" />
+                  <mssgle:LineSegment
+                    End="160.820519648596,23.2575773442962" />
+                  <mssgle:CubicBezierSegment
+                    Point1="160.820519648596,23.2575773442962"
+                    Point2="164.820519648596,23.2575773442962"
+                    Point3="164.820519648596,27.2575773442962" />
+                  <mssgle:LineSegment
+                    End="164.820519648596,39.0151546885924" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -975,51 +1085,24 @@ FROM
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\Extract data FACT\OLE DB Destination"
-          TopLeft="293.461549225644,280.484858617091" />
-        <EdgeLayout
-          Id="Package\Extract data FACT.Paths[Lookup No Match Output]"
-          TopLeft="423.323090381736,213.357581962151">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-44.6615411560917,67.1272766549399"
-              Start="0,0"
-              End="-44.6615411560917,59.6272766549399">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29.5636383274699" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,29.5636383274699"
-                    Point2="0,33.5636383274699"
-                    Point3="-4,33.5636383274699" />
-                  <mssgle:LineSegment
-                    End="-40.6615411560917,33.5636383274699" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-40.6615411560917,33.5636383274699"
-                    Point2="-44.6615411560917,33.5636383274699"
-                    Point3="-44.6615411560917,37.5636383274699" />
-                  <mssgle:LineSegment
-                    End="-44.6615411560917,59.6272766549399" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-78.1371572967959,38.5636383274699,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\Extract data FACT\Supply OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract data FACT\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1047,23 +1130,10 @@ FROM
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Extract data FACT\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
